@@ -3,6 +3,13 @@ const burger = document.querySelector(".burger");
 const menu = document.getElementById("mobile-menu");
 const menuInner = document.querySelector(".menu__inner");
 const menuLinks = document.querySelectorAll(".menu a");
+const themeToggle = document.querySelector(".theme-toggle");
+const themeToggleLabel = document.querySelector(".theme-toggle__label");
+const themeToggleIcon = themeToggle?.querySelector(".material-icons");
+const directCard = document.querySelector(".direct-card");
+const directArtboard = document.getElementById("directCardTwoArtboard");
+const directPhoto = document.querySelector(".direct-card__photo");
+const directVideo = document.querySelector(".direct2-video");
 const leaves = {
   left: document.querySelector(".leaf--left"),
   right: document.querySelector(".leaf--right"),
@@ -87,3 +94,77 @@ function onScroll() {
 window.addEventListener("scroll", onScroll, { passive: true });
 reducedMotion.addEventListener("change", updateParallax);
 updateParallax();
+
+function updateDirectScale() {
+  if (!directCard || !directArtboard) return;
+
+  const scale = Math.min(directCard.clientWidth / 660, directCard.clientHeight / 836);
+  directArtboard.style.setProperty("--direct-scale", String(scale));
+}
+
+function syncThemeToggle() {
+  if (!themeToggle) return;
+
+  const isNight = body.classList.contains("is-night");
+  themeToggle.setAttribute("aria-pressed", String(isNight));
+  themeToggle.setAttribute(
+    "aria-label",
+    isNight ? "Revenir au mode jour" : "Activer le mode nuit",
+  );
+
+  if (themeToggleLabel) {
+    themeToggleLabel.textContent = isNight ? "Mode jour" : "Mode nuit";
+  }
+
+  if (themeToggleIcon) {
+    themeToggleIcon.textContent = isNight ? "light_mode" : "dark_mode";
+  }
+}
+
+function swapDirectPhoto(targetSrc) {
+  if (!directPhoto || directPhoto.getAttribute("src") === targetSrc) return;
+
+  directPhoto.classList.add("is-swapping");
+
+  const nextImage = new Image();
+  nextImage.onload = () => {
+    directPhoto.setAttribute("src", targetSrc);
+    requestAnimationFrame(() => {
+      directPhoto.classList.remove("is-swapping");
+    });
+  };
+  nextImage.src = targetSrc;
+}
+
+function applyThemeState(isNight) {
+  body.classList.toggle("is-night", isNight);
+
+  if (directPhoto) {
+    const targetSrc = isNight
+      ? directPhoto.dataset.nightSrc
+      : directPhoto.dataset.daySrc || "https://res.cloudinary.com/dgupuutfn/image/upload/v1780913983/room2_pihyox.png";
+    swapDirectPhoto(targetSrc);
+  }
+
+  if (directVideo) {
+    if (isNight) {
+      const playPromise = directVideo.play();
+      if (playPromise?.catch) {
+        playPromise.catch(() => {});
+      }
+    } else {
+      directVideo.pause();
+    }
+  }
+
+  syncThemeToggle();
+}
+
+themeToggle?.addEventListener("click", () => {
+  applyThemeState(!body.classList.contains("is-night"));
+});
+
+window.addEventListener("load", updateDirectScale);
+window.addEventListener("resize", updateDirectScale);
+updateDirectScale();
+syncThemeToggle();
