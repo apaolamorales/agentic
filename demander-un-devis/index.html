@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#29bee4" />
+    <title>Demander un devis — Picturia Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Iosevka+Charon:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/demander-un-devis/style.css" />
+  </head>
+  <body class="is-loading">
+    <div class="quote-page">
+      <div class="quote-background" aria-hidden="true">
+        <video
+          class="quote-background__video"
+          src="https://stream.mux.com/4IMYGcL01xjs7ek5ANO17JC4VQVUTsojZlnw4fXzwSxc.m3u8"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        ></video>
+        <div class="quote-background__shade"></div>
+      </div>
+      <header class="quote-header">
+        <nav class="nav nav--quote" aria-label="Navigation principale">
+          <a class="nav__logo" href="/">Picturia Home</a>
+          <ul class="nav__links">
+            <li><a class="nav__pill" href="/">Accueil</a></li>
+            <li><a class="nav__pill" href="/#realisations">Réalisations</a></li>
+            <li><a class="nav__pill" href="#">Picturia</a></li>
+            <li><a class="nav__pill nav__pill--active" href="/demander-un-devis/">Contact</a></li>
+          </ul>
+          <a class="nav__cta" href="/demander-un-devis/">Demander un devis</a>
+        </nav>
+      </header>
+
+      <main class="quote-hero">
+        <section class="quote-copy">
+          <h1 class="quote-copy__title">
+            <span class="quote-copy__line"><span>Un devis plus clair.</span></span>
+            <span class="quote-copy__line quote-copy__line--serif"><span>Moins de friction.</span></span>
+          </h1>
+          <p class="quote-copy__lead">Peinture, rénovation intérieure et intervention après sinistre à Metz.</p>
+
+          <form class="quote-form" id="quote-form">
+            <div class="quote-step is-active" data-step="1">
+              <label class="quote-field">
+                <span class="quote-field__label">Budget estimatif</span>
+                <div class="quote-field__control">
+                  <span class="quote-field__prefix">€</span>
+                  <input
+                    id="budget-input"
+                    class="quote-field__input"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    placeholder="votre budget"
+                  />
+                </div>
+              </label>
+              <button class="quote-button quote-button--inline" type="button" id="next-step">
+                Continuer
+              </button>
+            </div>
+
+            <div class="quote-step" data-step="2" hidden>
+              <label class="quote-field">
+                <span class="quote-field__label">Adresse email</span>
+                <div class="quote-field__control quote-field__control--email">
+                  <input
+                    id="email-input"
+                    class="quote-field__input"
+                    type="email"
+                    autocomplete="email"
+                    placeholder="votre email"
+                  />
+                </div>
+              </label>
+              <div class="quote-actions">
+                <button class="quote-button quote-button--ghost" type="button" id="prev-step">
+                  Retour
+                </button>
+                <button class="quote-button" type="submit">Envoyer</button>
+              </div>
+            </div>
+
+            <div class="quote-success" id="quote-success" hidden>
+              <p class="quote-success__eyebrow">Demande envoyée</p>
+              <h2 class="quote-success__title">Votre projet est bien pris en compte.</h2>
+              <p class="quote-success__text">
+                Merci. Picturia Home reviendra vers vous rapidement avec une première
+                lecture de votre besoin.
+              </p>
+              <a class="quote-button" href="/">Revenir à l’accueil</a>
+            </div>
+          </form>
+        </section>
+
+        <section class="quote-gallery" aria-label="Aperçu des projets Picturia Home">
+          <div class="quote-gallery__halo" aria-hidden="true"></div>
+          <div class="quote-carousel" id="quote-carousel">
+            <article class="quote-card quote-card--note">
+              <img
+                src="https://res.cloudinary.com/dgupuutfn/image/upload/v1780913983/room2_pihyox.png"
+                alt="Projet de rénovation avec annotations"
+              />
+              <div class="quote-card__note quote-card__note--light">Relecture du plan</div>
+              <div class="quote-card__note quote-card__note--accent">
+                Reprendre le mur principal et réchauffer la palette.
+              </div>
+              <div class="quote-card__footer">
+                <p class="quote-card__title">Cadrer le projet ensemble</p>
+                <p class="quote-card__text">
+                  Définir le bon périmètre, les priorités et les finitions dès le départ.
+                </p>
+              </div>
+            </article>
+
+            <article class="quote-card quote-card--night">
+              <video
+                class="quote-card__video"
+                src="/mux3.mp4"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+              ></video>
+              <div class="quote-card__video-badge">
+                <span class="material-icons">play_circle</span>
+                <span>Aperçu en mouvement</span>
+              </div>
+              <div class="quote-card__footer">
+                <p class="quote-card__title">Projeter l’ambiance finale</p>
+                <p class="quote-card__text">
+                  Mieux choisir les matières, la lumière et l’équilibre de la pièce.
+                </p>
+              </div>
+            </article>
+
+            <article class="quote-card quote-card--plan">
+              <img
+                src="https://res.cloudinary.com/dgupuutfn/image/upload/v1780913983/room2_pihyox.png"
+                alt="Projet avec cadrage de dimensions"
+              />
+              <div class="quote-card__grid"></div>
+              <div class="quote-card__measure"></div>
+              <div class="quote-card__tag">Devis sur mesure</div>
+              <div class="quote-card__footer">
+                <p class="quote-card__title">Ajuster selon le budget</p>
+                <p class="quote-card__text">
+                  Obtenir une première base réaliste avant la visite ou le lancement.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/demander-un-devis/main.js"></script>
+  </body>
+</html>

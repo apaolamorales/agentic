@@ -11,6 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://db.onlinewebfonts.com/c/60323b40d418d578b0b2d55837f67ef2?family=Magical+Source+Demo"
+      rel="stylesheet"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Iosevka+Charon:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
@@ -48,10 +52,10 @@
           <ul class="nav__links">
             <li><a class="nav__pill nav__pill--active" href="#top">Accueil</a></li>
             <li><a class="nav__pill" href="#realisations">Réalisations</a></li>
-            <li><a class="nav__pill" href="#">Picturia</a></li>
-            <li><a class="nav__pill" href="#">Contact</a></li>
+            <li><a class="nav__pill" href="#picturia-story">Picturia</a></li>
+            <li><a class="nav__pill" href="/demander-un-devis/">Contact</a></li>
           </ul>
-          <a class="nav__cta" href="#">Demander un devis</a>
+          <a class="nav__cta" href="/demander-un-devis/">Demander un devis</a>
           <button
             class="burger"
             type="button"
@@ -70,10 +74,10 @@
             <ul class="menu__list">
               <li><a href="#top" style="--i: 0">Accueil</a></li>
               <li><a href="#realisations" style="--i: 1">Réalisations</a></li>
-              <li><a href="#" style="--i: 2">Picturia</a></li>
-              <li><a href="#" style="--i: 3">Contact</a></li>
+              <li><a href="#picturia-story" style="--i: 2">Picturia</a></li>
+              <li><a href="/demander-un-devis/" style="--i: 3">Contact</a></li>
             </ul>
-            <a class="menu__cta" href="#">Demander un devis</a>
+            <a class="menu__cta" href="/demander-un-devis/">Demander un devis</a>
           </div>
         </div>
       </section>
@@ -320,6 +324,49 @@
                 </div>
               </article>
             </div>
+          </div>
+        </div>
+      </section>
+      <section class="story-section" id="picturia-story" aria-labelledby="story-title">
+        <div class="story-section__sticky">
+          <canvas class="story-section__canvas" id="story-canvas" aria-hidden="true"></canvas>
+          <video
+            class="story-section__video story-section__video--source"
+            id="story-video-back"
+            muted
+            playsinline
+            preload="auto"
+            src="/video/picturia-scroll.mp4"
+          ></video>
+          <div class="story-section__veil"></div>
+          <div class="story-section__center">
+            <div class="story-orbit">
+              <div class="story-orbit__ring story-orbit__ring--outer"></div>
+              <div class="story-orbit__ring story-orbit__ring--inner"></div>
+              <svg
+                class="story-orbit__logo"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 256"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M 256 256 L 128 256 L 0 128 L 128 128 Z M 256 128 L 128 128 L 0 0 L 128 0 Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="story-section__copy">
+            <p class="story-section__eyebrow">Picturia</p>
+            <h2 class="story-section__title" id="story-title">
+              Quand le détail juste<br />
+              rencontre une élégance durable
+            </h2>
+            <p class="story-section__text">
+              Une expérience plus fluide pour cadrer un projet, visualiser l’ambiance,
+              et faire avancer chaque décision avec plus de clarté.
+            </p>
           </div>
         </div>
       </section>
