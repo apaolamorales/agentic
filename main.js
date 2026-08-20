@@ -10,6 +10,10 @@ const directCard = document.querySelector(".direct-card");
 const directArtboard = document.getElementById("directCardTwoArtboard");
 const directPhoto = document.querySelector(".direct-card__photo");
 const directVideo = document.querySelector(".direct2-video");
+const projectsAccentShell = document.querySelector(".projects-section__accent-shell");
+const projectsAccent = document.querySelector(".projects-section__accent");
+const projectMedia = document.querySelector(".project-card--large .project-card__media");
+const projectsSection = document.getElementById("realisations");
 const leaves = {
   left: document.querySelector(".leaf--left"),
   right: document.querySelector(".leaf--right"),
@@ -75,6 +79,11 @@ function updateParallax() {
     leaves.left?.style.setProperty("--parallax-x", "0px");
     leaves.right?.style.setProperty("--parallax-y", "0px");
     leaves.right?.style.setProperty("--parallax-x", "0px");
+    projectsAccentShell?.style.setProperty("--projects-accent-shell-x", "0px");
+    projectsAccentShell?.style.setProperty("--projects-accent-shell-y", "0px");
+    projectsAccent?.style.setProperty("--projects-accent-x", "0px");
+    projectsAccent?.style.setProperty("--projects-accent-y", "0px");
+    projectMedia?.style.setProperty("--project-media-y", "0px");
     return;
   }
 
@@ -83,6 +92,24 @@ function updateParallax() {
   leaves.left?.style.setProperty("--parallax-x", `${scrollY * -0.06}px`);
   leaves.right?.style.setProperty("--parallax-y", `${scrollY * -0.48}px`);
   leaves.right?.style.setProperty("--parallax-x", `${scrollY * 0.08}px`);
+
+  if (projectsSection) {
+    const rect = projectsSection.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+    const clamped = Math.max(0, Math.min(1, progress));
+    const accentShellY = (clamped - 0.5) * -42;
+    const accentShellX = (clamped - 0.5) * 16;
+    const accentY = (clamped - 0.5) * -76;
+    const accentX = (clamped - 0.5) * 22;
+    const mediaY = (clamped - 0.5) * -28;
+
+    projectsAccentShell?.style.setProperty("--projects-accent-shell-x", `${accentShellX}px`);
+    projectsAccentShell?.style.setProperty("--projects-accent-shell-y", `${accentShellY}px`);
+    projectsAccent?.style.setProperty("--projects-accent-x", `${accentX}px`);
+    projectsAccent?.style.setProperty("--projects-accent-y", `${accentY}px`);
+    projectMedia?.style.setProperty("--project-media-y", `${mediaY}px`);
+  }
 }
 
 function onScroll() {

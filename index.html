@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <div class="page">
+    <div class="page" id="top">
       <section class="hero">
         <img
           class="hero__sky"
@@ -44,10 +44,10 @@
         />
         <div class="hero__fade"></div>
         <nav class="nav" aria-label="Navigation principale">
-          <a class="nav__logo" href="#">Picturia Home</a>
+          <a class="nav__logo" href="#top">Picturia Home</a>
           <ul class="nav__links">
-            <li><a class="nav__pill nav__pill--active" href="#">Accueil</a></li>
-            <li><a class="nav__pill" href="#">Réalisations</a></li>
+            <li><a class="nav__pill nav__pill--active" href="#top">Accueil</a></li>
+            <li><a class="nav__pill" href="#realisations">Réalisations</a></li>
             <li><a class="nav__pill" href="#">Picturia</a></li>
             <li><a class="nav__pill" href="#">Contact</a></li>
           </ul>
@@ -68,8 +68,8 @@
           <div class="menu__bg"></div>
           <div class="menu__inner">
             <ul class="menu__list">
-              <li><a href="#" style="--i: 0">Accueil</a></li>
-              <li><a href="#" style="--i: 1">Réalisations</a></li>
+              <li><a href="#top" style="--i: 0">Accueil</a></li>
+              <li><a href="#realisations" style="--i: 1">Réalisations</a></li>
               <li><a href="#" style="--i: 2">Picturia</a></li>
               <li><a href="#" style="--i: 3">Contact</a></li>
             </ul>
@@ -105,7 +105,7 @@
           <div>
             <p class="direct-section__eyebrow">Expérience produit</p>
             <h3 class="direct-section__title" id="direct-section-title">
-              Une carte interactive pour visualiser le projet
+              Visualiser, ajuster et valider le projet plus vite.
             </h3>
           </div>
           <button
@@ -251,6 +251,75 @@
                 </p>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+      <section class="projects-section" id="realisations" aria-labelledby="projects-title">
+        <div class="projects-section__inner">
+          <div class="projects-section__accent-shell" aria-hidden="true">
+            <img
+              class="projects-section__accent"
+              src="/paradoxal-accent.png"
+              alt=""
+            />
+          </div>
+          <div class="projects-section__copy">
+            <p class="projects-section__eyebrow">Réalisations</p>
+            <h3 class="projects-section__title" id="projects-title">
+              Des réalisations plus lisibles, plus élégantes, plus rassurantes.
+            </h3>
+            <p class="projects-section__lead">
+              Picturia Home accompagne les particuliers et les professionnels à Metz
+              sur des projets de rénovation intérieure, de mise en peinture et
+              d’intervention après sinistre avec un même niveau d’exigence.
+            </p>
+          </div>
+          <div class="projects-showcase">
+            <article class="project-card project-card--large">
+              <div class="project-card__media-wrap">
+                <img
+                  class="project-card__media"
+                  src="https://res.cloudinary.com/dgupuutfn/image/upload/v1780913983/room2_pihyox.png"
+                  alt="Salon rénové par Picturia Home"
+                />
+              </div>
+              <div class="project-card__body">
+                <p class="project-card__label">Appartement • Metz centre</p>
+                <h4 class="project-card__title">
+                  Un salon repris de A à Z avec plus de lumière, de cohérence et de confort visuel.
+                </h4>
+                <p class="project-card__text">
+                  Une rénovation pensée pour apporter plus de clarté, améliorer la
+                  circulation et redonner une vraie identité à la pièce principale.
+                </p>
+              </div>
+            </article>
+            <div class="project-stack">
+              <article class="project-card project-card--compact">
+                <div class="project-card__body">
+                  <p class="project-card__label">Intervention après sinistre</p>
+                  <h4 class="project-card__title">
+                    Remise en état rapide après dégât des eaux.
+                  </h4>
+                  <p class="project-card__text">
+                    Diagnostic, assèchement visuel, reprise des murs et finitions
+                    propres avec un calendrier clair.
+                  </p>
+                </div>
+              </article>
+              <article class="project-card project-card--compact project-card--accent">
+                <div class="project-card__body">
+                  <p class="project-card__label">Peinture & finitions</p>
+                  <h4 class="project-card__title">
+                    Choix des teintes, revêtements et détails de finition.
+                  </h4>
+                  <p class="project-card__text">
+                    Un accompagnement précis pour valider les bonnes matières avant
+                    le lancement du chantier.
+                  </p>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </section>
