@@ -20,7 +20,7 @@ const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 function setMenuState(isOpen) {
   body.classList.toggle("is-open", isOpen);
   burger?.setAttribute("aria-expanded", String(isOpen));
-  burger?.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  burger?.setAttribute("aria-label", isOpen ? "Fermer le menu" : "Ouvrir le menu");
 
   if (!isOpen) {
     burger?.focus();
@@ -30,7 +30,7 @@ function setMenuState(isOpen) {
 function closeMenu({ restoreFocus = false } = {}) {
   body.classList.remove("is-open");
   burger?.setAttribute("aria-expanded", "false");
-  burger?.setAttribute("aria-label", "Open menu");
+  burger?.setAttribute("aria-label", "Ouvrir le menu");
 
   if (restoreFocus) {
     burger?.focus();
